@@ -1,5 +1,6 @@
 __author__ = 'Cheaterman'
 
+from xml.etree import cElementTree
 from entities import Element
 
 
@@ -9,11 +10,11 @@ class ElementDialog:
         self.elements = []
         self.current_element = 0
 
-        self.add_element('Name')
-        self.add_element('Date')
-        self.add_element('Description')
+        self.add('Name')
+        self.add('Date')
+        self.add('Description')
 
-    def add_element(self, name):
+    def add(self, name):
         element_names = []
         for element in self.elements:
             element_names.append(element.name)
@@ -31,5 +32,12 @@ class ElementDialog:
         return self.elements[self.current_element]
 
     def dump(self):
+        root = cElementTree.Element('Element')
         for element in self.elements:
+            field = cElementTree.SubElement(root, element.name)
+            field.text = element.value
+
             print '%s = "%s"' % (element.name, element.value)
+
+        tree = cElementTree.ElementTree(root)
+        tree.write('Element.xml')

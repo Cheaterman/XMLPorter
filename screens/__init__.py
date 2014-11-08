@@ -1,3 +1,3 @@
 __author__ = 'Cheaterman'
 
-from cli import CliMenu
+from .cli import CliMenu
