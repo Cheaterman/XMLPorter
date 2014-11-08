@@ -42,7 +42,7 @@ class ElementDialog:
 
         tree = cElementTree.ElementTree(root)
         document = minidom.parseString(cElementTree.tostring(root, encoding='UTF-8'))
-        file = open('Element.xml', 'w')
+        file = open('Element.xml', 'wb')
         file.write(document.toprettyxml(
             indent='    ',
             encoding='UTF-8'
