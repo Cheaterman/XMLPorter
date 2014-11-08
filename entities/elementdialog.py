@@ -37,7 +37,7 @@ class ElementDialog:
             field = cElementTree.SubElement(root, element.name)
             field.text = element.value
 
-            print '%s = "%s"' % (element.name, element.value)
+            print('%s = "%s"' % (element.name, element.value))
 
         tree = cElementTree.ElementTree(root)
         tree.write('Element.xml')

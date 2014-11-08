@@ -13,7 +13,7 @@ class CliMenu:
         self.dialog = ElementDialog()
 
     def print_motd(self):
-        print self.motd
+        print(self.motd)
 
     def process(self, app):
         self.dialog.current().display()

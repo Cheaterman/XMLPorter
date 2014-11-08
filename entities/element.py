@@ -6,4 +6,4 @@ class Element:
         self.value = ''
 
     def display(self):
-        print self.name, ': '
+        print('%s:' % self.name)
