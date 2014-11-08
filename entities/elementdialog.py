@@ -1,6 +1,7 @@
 __author__ = 'Cheaterman'
 
 from xml.etree import cElementTree
+from xml.dom import minidom
 from entities import Element
 
 
@@ -40,4 +41,9 @@ class ElementDialog:
             print('%s = "%s"' % (element.name, element.value))
 
         tree = cElementTree.ElementTree(root)
-        tree.write('Element.xml')
+        document = minidom.parseString(cElementTree.tostring(root, encoding='UTF-8'))
+        file = open('Element.xml', 'w')
+        file.write(document.toprettyxml(
+            indent='    ',
+            encoding='UTF-8'
+        ))
