@@ -29,3 +29,7 @@ class ElementDialog:
 
     def current(self):
         return self.elements[self.current_element]
+
+    def dump(self):
+        for element in self.elements:
+            print '%s = "%s"' % (element.name, element.value)

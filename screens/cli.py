@@ -21,6 +21,7 @@ class CliMenu:
 
         if line == 'quit':
             app.quit = True
+            self.dialog.dump()
         else:
             self.dialog.current().value = line
             self.dialog.next()
